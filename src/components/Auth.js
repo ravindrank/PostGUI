@@ -82,6 +82,8 @@ export default class Auth {
           pass: this.userPassword
         });
         let data = rawResp.data[0];
+        if(!data)
+        	data = rawResp.data;
         this._setStatusTokenExpiry(true, data.token, data.tokenExpiry);
 
         return data;
